@@ -2,6 +2,10 @@ import requests
 from bs4 import BeautifulSoup
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 billboard_url = "https://www.billboard.com/charts/hot-100/"
 
@@ -13,8 +17,9 @@ soup = BeautifulSoup(website, "html.parser")
 songs = soup.select("li ul li h3")
 best_songs = [song.getText().strip() for song in songs]
 
-spotify_client_ID = "30547730d7d14983aa4cc048732f307c"
-spotify_client_secret = "bd33f4aeda9b4694ab3a54d7a5f596db"
+#..............................Add to Spotify................................
+spotify_client_ID = os.environ["spotify_client_ID"]
+spotify_client_secret = os.environ["spotify_client_secret"]
 
 sp = spotipy.Spotify(
     auth_manager=SpotifyOAuth(
@@ -29,7 +34,7 @@ sp = spotipy.Spotify(
 )
 user_id = sp.current_user()["id"]
 #print(user_id)
-spotify_client_token = "312y2wuxm5xuli7maytsm26iwtne"
+spotify_client_token = os.environ["spotify_client_token"]
 
 year = 2024
 song_uris = []

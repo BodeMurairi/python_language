@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="./static/styles.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="top">
+        <div class="title"><h1>My Blog</h1></div>
+    </div>
+    <div class="content">
+        <div class="card">
+            <h2>{{first_title}}</h2>
+            <p class="text">{{first_subtitle}} </p>
+            <a href="{{ url_for('first_article', id=1) }}">Read</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="card">
+            <h2>{{ second_title }}</h2>
+            <p class="text"> {{ second_subtitle }} </p>
+            <a href="{{url_for('second_article', id=2)}}">Read</a>
+        </div>
+        <div class="content">
+    </div>
+
+</div>
+    <div class="content">
+        <div class="card">
+            <h2>{{ third_title }}</h2>
+            <p class="text"> {{ third_subtitle }} </p>
+            <a href="{{url_for('third_article', id=3)}}">Read</a>
+        </div>
+</body>
+<footer>
+    <p>Developed by Bode Murairi.</p>
+</footer>
+</html>
